@@ -7,11 +7,11 @@ Bonus: Can you do this in one pass?
 */
 
 function twoSum(arr, S) {
-  var sums = [];
+  const sums = new Array();
   var hashTable = {};
   for (var i = 0; i < arr.length; i++) {
     var sumMinusElement = S - arr[i];
-    if (hashTable[sumMinusElement.toString()] !== undefined) { 
+    if (hashTable[sumMinusElement.toString()] !== undefined) {
       sums.push([arr[i], sumMinusElement]);
     }
     hashTable[arr[i].toString()] = arr[i];
@@ -19,9 +19,8 @@ function twoSum(arr, S) {
   return sums;
 }
 
-
-console.assert(twoSum([10, 15, 3, 7], 17) == Array([7, 10]));
-console.assert(twoSum([10, 15, 3, 7, 8, 9, 10], 19) == [(9, 10), (10, 9)]);
-console.assert(twoSum([2, 7, 11, 15], 9) == [(7, 2)]);
-console.assert(twoSum([6, 7, 11, 15, 3, 6, 5, 3], 6) == [(3, 3)]);
-console.assert(twoSum([3, 5, 2, -4, 8, 11], 7) == [];
+[[7, 10]].equals(twoSum([10, 15, 3, 7], 17));
+[[9, 10], [10, 9]].equals(twoSum([10, 15, 3, 7, 8, 9, 10], 19));
+[[7, 2]].equals(twoSum([2, 7, 11, 15], 9));
+[[3, 3]].equals(twoSum([6, 7, 11, 15, 3, 6, 5, 3], 6));
+[[2, 5], [11, -4]].equals(twoSum([3, 5, 2, -4, 8, 11], 7));
